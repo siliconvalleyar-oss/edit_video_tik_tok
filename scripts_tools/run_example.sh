@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # Example: generate a TikTok-style video with default effects
-# Usage: ./scripts_tools/run_example.sh
+# Usage: ./scripts_tools/run_example.sh [image] [audio] [music] [logo] [output]
 
 SCRIPT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$SCRIPT_DIR"

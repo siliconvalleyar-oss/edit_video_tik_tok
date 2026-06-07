@@ -8,6 +8,15 @@ if command -v ffmpeg &>/dev/null; then
     exit 0
 fi
 
+# Detect WSL (Windows Subsystem for Linux)
+if grep -qi microsoft /proc/version 2>/dev/null; then
+    echo "Detected WSL — installing FFmpeg via apt..."
+    sudo apt update
+    sudo apt install -y ffmpeg
+    echo "FFmpeg installed: $(ffmpeg -version | head -1)"
+    exit 0
+fi
+
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     if command -v apt &>/dev/null; then
         sudo apt update

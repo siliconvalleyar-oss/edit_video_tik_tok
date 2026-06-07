@@ -15,18 +15,47 @@ Automated TikTok-style video editor using FFmpeg. Takes a background image, voic
 
 ## Installation
 
+### Linux / macOS / WSL
+
 ```bash
 git clone https://github.com/siliconvalleyar-oss/edit_video_tik_tok.git
 cd edit_video_tik_tok
-chmod +x video_editor.py
+chmod +x video_editor.py scripts_tools/*.sh
+
+# Install FFmpeg automatically
+./scripts_tools/install_deps.sh
+```
+
+### Windows
+
+```powershell
+git clone https://github.com/siliconvalleyar-oss/edit_video_tik_tok.git
+cd edit_video_tik_tok
+
+# Install FFmpeg automatically (via winget or chocolatey)
+.\scripts_tools\install_deps.ps1
 ```
 
 No additional Python packages required (uses only stdlib).
 
 ## Usage
 
+### Linux / macOS / WSL
+
 ```bash
 python3 video_editor.py -i background.jpg -a voice.mp3 -m music.mp3 -o output.mp4
+
+# Or use the example script
+./scripts_tools/run_example.sh
+```
+
+### Windows
+
+```powershell
+python video_editor.py -i background.jpg -a voice.mp3 -m music.mp3 -o output.mp4
+
+# Or use the example script
+.\scripts_tools\run_example.ps1
 ```
 
 ### Options
@@ -79,8 +108,13 @@ The background image is scaled to 1400×2560 (larger than the 1080×1920 output)
 ```
 .
 ├── README.md
-├── video_editor.py       # Main script
-├── imagenes/             # Place source images here (gitignored)
-├── mp3/                  # Place audio files here (gitignored)
-└── mp4/                  # Output directory (gitignored)
+├── video_editor.py          # Main script (cross-platform)
+├── scripts_tools/
+│   ├── install_deps.sh      # Install FFmpeg (Linux / WSL)
+│   ├── install_deps.ps1     # Install FFmpeg (Windows)
+│   ├── run_example.sh       # Example runner (Linux / WSL)
+│   └── run_example.ps1      # Example runner (Windows)
+├── imagenes/                # Place source images here (gitignored)
+├── mp3/                     # Place audio files here (gitignored)
+└── mp4/                     # Output directory (gitignored)
 ```
