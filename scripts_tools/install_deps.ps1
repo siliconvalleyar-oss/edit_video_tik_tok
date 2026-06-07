@@ -1,5 +1,21 @@
 # scripts_tools/install_deps.ps1
-# Install FFmpeg on Windows (using winget or chocolatey)
+# Install FFmpeg and create project folder structure on Windows
+
+Write-Host "=== Creating project folder structure ===" -ForegroundColor Cyan
+$ProjectRoot = Split-Path -Parent $PSScriptRoot
+Set-Location $ProjectRoot
+
+$dirs = @("imagenes", "mp3", "mp4", "scripts_tools")
+foreach ($dir in $dirs) {
+    if (-not (Test-Path $dir)) {
+        New-Item -ItemType Directory -Path $dir | Out-Null
+        Write-Host "  ✓ $dir/" -ForegroundColor Green
+    } else {
+        Write-Host "  ✓ $dir/ (already exists)" -ForegroundColor Green
+    }
+}
+Write-Host ""
+
 Write-Host "=== Installing FFmpeg (required for video_editor.py) ===" -ForegroundColor Cyan
 
 # Check if FFmpeg is already available

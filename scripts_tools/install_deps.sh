@@ -1,6 +1,17 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+echo "=== Creating project folder structure ==="
+SCRIPT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+cd "$SCRIPT_DIR"
+
+mkdir -p imagenes mp3 mp4 scripts_tools
+echo "  ✓ imagenes/"
+echo "  ✓ mp3/"
+echo "  ✓ mp4/"
+echo "  ✓ scripts_tools/"
+echo ""
+
 echo "=== Installing FFmpeg (required for video_editor.py) ==="
 
 if command -v ffmpeg &>/dev/null; then
