@@ -1,0 +1,35 @@
+# Media files (inputs/outputs)
+*.mp4
+*.mp3
+*.wav
+*.flac
+*.ogg
+*.jpeg
+*.jpg
+*.png
+*.gif
+*.webp
+*.webm
+*.mov
+*.avi
+*.mkv
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# Environment
+.env
+venv/
+.venv/
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
